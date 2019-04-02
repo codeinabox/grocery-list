@@ -1,0 +1,33 @@
+version: '3'
+services:
+  api:
+    build: ./server
+    depends_on:
+      - database
+    ports:
+      - "8080"
+    environment:
+      DATABASE_HOST: database
+      DATABASE_PORT: 3306
+      DATABASE_USER: root
+      DATABASE_PASSWORD: pwd
+      DATABASE_NAME: list
+
+  web:
+    build: ./client
+    depends_on:
+      - api
+    ports:
+      - "80"
+
+  database:
+    image: mysql:latest
+    ports:
+      - "8083:3306"
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pwd
+      MYSQL_DATABASE: list

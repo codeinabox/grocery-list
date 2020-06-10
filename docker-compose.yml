@@ -1,7 +1,10 @@
-version: '3'
+version: "3"
 services:
   api:
     build: ./server
+    command: npm run start-dev
+    volumes:
+      - ./server:/usr/src/app
     depends_on:
       - database
     ports:

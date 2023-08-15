@@ -2,6 +2,9 @@
   "name": "grocery-list",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "^14"
+  },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "http-proxy-middleware": "^0.19.1",

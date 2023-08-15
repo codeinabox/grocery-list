@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "API server",
   "main": "src/index.js",
+  "engines": {
+    "node": "^14"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
